@@ -1,5 +1,6 @@
-package net.iyouqu.bruceretrofit;
+package net.iyouqu.bruceretrofit.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +9,14 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import net.iyouqu.bruceretrofit.Bean.FuliList;
 import net.iyouqu.bruceretrofit.Bean.Girl;
 import net.iyouqu.bruceretrofit.Db.GirlDaoHelper;
+import net.iyouqu.bruceretrofit.R;
 import net.iyouqu.bruceretrofit.adapter.BtAdapter;
+import net.iyouqu.bruceretrofit.interfacebt.OnBtTouchListener;
 import net.iyouqu.bruceretrofit.network.BruceFactory;
 import net.iyouqu.bruceretrofit.widget.MultiSwipeRefreshLayout;
 
@@ -23,7 +27,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnBtTouchListener {
 	private static final String TAG = MainActivity.class.getSimpleName();
 	private RecyclerView mRecyclerView;
 	private MultiSwipeRefreshLayout mSwipeRefreshLayout;
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 		mbtAdapter = new BtAdapter(this, mGirlList);
 		mRecyclerView.setAdapter(mbtAdapter);
 		mRecyclerView.addOnScrollListener(getScrollToBottomListener(layoutManager));
-		mbtAdapter.setOnBtTouchListener(null);
+		mbtAdapter.setOnBtTouchListener(this);
 
 		mSwipeRefreshLayout = (MultiSwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 	}
@@ -202,5 +206,10 @@ public class MainActivity extends AppCompatActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 		mPage = 1;
+	}
+
+	@Override
+	public void onTouch(View view, View baseView, View imageView, Girl girl) {
+		startActivity(new Intent(this,CoordinatorActivity.class));
 	}
 }
