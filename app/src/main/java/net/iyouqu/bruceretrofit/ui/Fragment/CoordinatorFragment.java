@@ -1,12 +1,15 @@
-package net.iyouqu.bruceretrofit.ui;
+package net.iyouqu.bruceretrofit.ui.Fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -16,9 +19,10 @@ import android.widget.TextView;
 import net.iyouqu.bruceretrofit.R;
 
 /**
- * Created by q on 2015/11/12.
+ * Created by q on 2015/11/13.
  */
-public class CoordinatorActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
+public class CoordinatorFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener {
+
 	private static final float PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR  = 0.9f;
 	private static final float PERCENTAGE_TO_HIDE_TITLE_DETAILS     = 0.3f;
 	private static final int ALPHA_ANIMATIONS_DURATION              = 200;
@@ -32,29 +36,28 @@ public class CoordinatorActivity extends AppCompatActivity implements AppBarLayo
 	private ImageView mImageparallax;
 	private FrameLayout mFrameParallax;
 	private Toolbar mToolbar;
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.coordinator_layout_main);
 
-		bindActivity();
+	@Nullable
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.coordinator_fragment_layout, container, false);
+		mToolbar        = (Toolbar) view.findViewById(R.id.main_toolbar);
+		mTitle          = (TextView) view.findViewById(R.id.main_textview_title);
+		mTitleContainer = (LinearLayout) view.findViewById(R.id.main_linearlayout_title);
+		mAppBarLayout   = (AppBarLayout) view.findViewById(R.id.main_appbar);
+		mImageparallax  = (ImageView) view.findViewById(R.id.main_imageview_placeholder);
+		mFrameParallax  = (FrameLayout) view.findViewById(R.id.main_framelayout_title);
 
 		mToolbar.setTitle("");
 		mAppBarLayout.addOnOffsetChangedListener(this);
 
-		setSupportActionBar(mToolbar);
+		((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
 		startAlphaAnimation(mTitle, 0, View.INVISIBLE);
 		initParallaxValues();
+		return view;
 	}
 
-	private void bindActivity() {
-		mToolbar        = (Toolbar) findViewById(R.id.main_toolbar);
-		mTitle          = (TextView) findViewById(R.id.main_textview_title);
-		mTitleContainer = (LinearLayout) findViewById(R.id.main_linearlayout_title);
-		mAppBarLayout   = (AppBarLayout) findViewById(R.id.main_appbar);
-		mImageparallax  = (ImageView) findViewById(R.id.main_imageview_placeholder);
-		mFrameParallax  = (FrameLayout) findViewById(R.id.main_framelayout_title);
-	}
+
 
 	private void initParallaxValues() {
 		CollapsingToolbarLayout.LayoutParams petDetailsLp =
@@ -77,12 +80,6 @@ public class CoordinatorActivity extends AppCompatActivity implements AppBarLayo
 
 		handleAlphaOnTitle(percentage);
 		handleToolbarTitleVisibility(percentage);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu_main, menu);
-		return true;
 	}
 
 	private void handleToolbarTitleVisibility(float percentage) {
@@ -127,4 +124,5 @@ public class CoordinatorActivity extends AppCompatActivity implements AppBarLayo
 		alphaAnimation.setFillAfter(true);
 		v.startAnimation(alphaAnimation);
 	}
+
 }

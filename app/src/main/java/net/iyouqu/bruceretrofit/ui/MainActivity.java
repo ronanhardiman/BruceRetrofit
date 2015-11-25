@@ -17,6 +17,7 @@ import net.iyouqu.bruceretrofit.Db.GirlDaoHelper;
 import net.iyouqu.bruceretrofit.R;
 import net.iyouqu.bruceretrofit.adapter.BtAdapter;
 import net.iyouqu.bruceretrofit.interfacebt.OnBtTouchListener;
+import net.iyouqu.bruceretrofit.interfacebt.OnLongClickListener;
 import net.iyouqu.bruceretrofit.network.BruceFactory;
 import net.iyouqu.bruceretrofit.widget.MultiSwipeRefreshLayout;
 
@@ -27,7 +28,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class MainActivity extends AppCompatActivity implements OnBtTouchListener {
+public class MainActivity extends AppCompatActivity implements OnBtTouchListener, OnLongClickListener {
 	private static final String TAG = MainActivity.class.getSimpleName();
 	private RecyclerView mRecyclerView;
 	private MultiSwipeRefreshLayout mSwipeRefreshLayout;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements OnBtTouchListener
 		mRecyclerView.setAdapter(mbtAdapter);
 		mRecyclerView.addOnScrollListener(getScrollToBottomListener(layoutManager));
 		mbtAdapter.setOnBtTouchListener(this);
+		mbtAdapter.setOnLongClickListener(this);
 
 		mSwipeRefreshLayout = (MultiSwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 	}
@@ -210,6 +212,11 @@ public class MainActivity extends AppCompatActivity implements OnBtTouchListener
 
 	@Override
 	public void onTouch(View view, View baseView, View imageView, Girl girl) {
-		startActivity(new Intent(this,CoordinatorActivity.class));
+		startActivity(new Intent(this,CoordinatorActivity2.class));
+	}
+
+	@Override
+	public void onLongClick() {
+		startActivity(new Intent(this,CoordinatorActivity2.class));
 	}
 }

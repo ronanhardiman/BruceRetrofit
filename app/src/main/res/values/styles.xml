@@ -9,4 +9,12 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
     </style>
+    <style name="TextAppearance.Filter" parent="@android:style/TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/filter_text</item>
+    </style>
+    <style name="ViaTextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_grey_bdbdbd</item>
+    </style>
 </resources>

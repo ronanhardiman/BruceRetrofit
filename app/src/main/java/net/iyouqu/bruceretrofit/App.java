@@ -1,6 +1,7 @@
 package net.iyouqu.bruceretrofit;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
@@ -11,9 +12,16 @@ import com.facebook.stetho.Stetho;
  */
 public class App extends Application{
 	private static final int GLIDE_DISKCACHE = 1024 * 1024 * 100;
+	private static Context mContext;
+
+	public static Context getmContext() {
+		return mContext;
+	}
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		this.mContext = getApplicationContext();
 		initStetho();
 		initGlide();
 	}

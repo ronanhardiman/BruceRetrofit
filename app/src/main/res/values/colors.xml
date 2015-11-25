@@ -34,5 +34,16 @@
     <color name="about_header_background">@color/theme_primary_darker</color>
 
     <color name="lite_blue">#ff359ff2</color>
+    <color name="background_dark">#ff333333</color>
+    <color name="content_placeholder">#ffe0e0e0</color>
+    <color name="text_primary_light">#ffffffff</color>
+    <color name="text_secondary_light">#b3ffffff</color> <!-- 70% -->
+    <color name="text_disabled_light">#4dffffff</color> <!-- 30% -->
 
+    <color name="color_black_000">#000000</color>
+
+    <color name="color_amber_ffecb3">#ffecb3</color>
+
+    <color name="color_grey_212121">#212121</color>
+    <color name="color_grey_bdbdbd">#bdbdbd</color>
 </resources>

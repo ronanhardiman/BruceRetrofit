@@ -4,4 +4,19 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="margin_0">0dp</dimen>
+    <dimen name="drawer_width">304dp</dimen>
+    <dimen name="z_drawer">16dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="avatar_size">40dp</dimen>
+    <dimen name="avatar_bounds">48dp</dimen>
+    <dimen name="avatar_padding">4dp</dimen> <!-- (avatar_bounds - avatar_size) / 2 -->
+    <dimen name="avatar_margin">12dp</dimen> <!-- padding_normal - avatar_padding -->
+    <dimen name="spacing_micro">4dp</dimen>
+
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="large_size_18">18sp</dimen>
+    <dimen name="middle_size_16">16sp</dimen>
+    <dimen name="middle_size_14">14sp</dimen>
+    <dimen name="small_size_12">12sp</dimen>
 </resources>

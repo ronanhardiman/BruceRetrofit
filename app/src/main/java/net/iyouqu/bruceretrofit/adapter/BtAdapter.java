@@ -14,6 +14,7 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import net.iyouqu.bruceretrofit.Bean.Girl;
 import net.iyouqu.bruceretrofit.R;
 import net.iyouqu.bruceretrofit.interfacebt.OnBtTouchListener;
+import net.iyouqu.bruceretrofit.interfacebt.OnLongClickListener;
 import net.iyouqu.bruceretrofit.widget.RatioImageView;
 
 import java.util.List;
@@ -26,9 +27,15 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 	private Context mContext;
 	private List<Girl> girlList;
 	private OnBtTouchListener onBtTouchListener;
+	private OnLongClickListener onLongClickListener;
 	public void setOnBtTouchListener(OnBtTouchListener onBtTouchListener){
 		this.onBtTouchListener = onBtTouchListener;
 	}
+
+	public void setOnLongClickListener(OnLongClickListener onLongClickListener) {
+		this.onLongClickListener = onLongClickListener;
+	}
+
 	public BtAdapter(Context mContext,List<Girl> mList){
 		this.mContext = mContext;
 		this.girlList = mList;
@@ -65,7 +72,7 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 		return girlList.size();
 	}
 
-	class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+	class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 		View view;
 		TextView textView;
 		RatioImageView ratioImageView;
@@ -77,6 +84,7 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 			ratioImageView = (RatioImageView) itemView.findViewById(R.id.iv_bt);
 			ratioImageView.setOriginalSize(50,50);
 			view.setOnClickListener(this);
+//			view.setOnLongClickListener(this);
 			ratioImageView.setOnClickListener(this);
 		}
 
@@ -85,6 +93,14 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 			if(onBtTouchListener != null){
 				onBtTouchListener.onTouch(v, view, ratioImageView, girl);
 			}
+		}
+
+		@Override
+		public boolean onLongClick(View v) {
+//			if (onLongClickListener != null) {
+//				onLongClickListener.onLongClick();
+//			}
+			return false;
 		}
 	}
 }
