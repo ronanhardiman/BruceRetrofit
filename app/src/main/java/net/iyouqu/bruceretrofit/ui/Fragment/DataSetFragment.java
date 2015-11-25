@@ -1,6 +1,7 @@
 package net.iyouqu.bruceretrofit.ui.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import net.iyouqu.bruceretrofit.Bean.DataSet;
 import net.iyouqu.bruceretrofit.Bean.Girl;
 import net.iyouqu.bruceretrofit.R;
 import net.iyouqu.bruceretrofit.network.BruceFactory;
+import net.iyouqu.bruceretrofit.ui.MainActivity;
 import net.iyouqu.bruceretrofit.util.StringUtil;
 
 import java.util.ArrayList;
@@ -213,6 +215,7 @@ public class DataSetFragment extends Fragment {
 
 		@OnClick(R.id.ll_parent)
 		void onItemClick(View v) {
+			v.getContext().startActivity(new Intent(v.getContext(), MainActivity.class));
 			Toast.makeText(v.getContext(), "ll_parent onClick", Toast.LENGTH_SHORT).show();
 		}
 	}

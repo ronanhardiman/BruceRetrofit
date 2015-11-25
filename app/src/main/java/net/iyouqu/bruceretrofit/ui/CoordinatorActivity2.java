@@ -3,18 +3,18 @@ package net.iyouqu.bruceretrofit.ui;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.widget.LinearLayout;
 
 import net.iyouqu.bruceretrofit.R;
+import net.iyouqu.bruceretrofit.ui.Base.BaseActivity;
 import net.iyouqu.bruceretrofit.ui.Fragment.CoordinatorFragment;
 import net.iyouqu.bruceretrofit.ui.Fragment.MyFragment;
 
 /**
  * Created by q on 2015/11/13.
  */
-public class CoordinatorActivity2 extends AppCompatActivity{
+public class CoordinatorActivity2 extends BaseActivity{
 
 	LinearLayout coordinator_layout;
 	FragmentManager supportFragmentManager;

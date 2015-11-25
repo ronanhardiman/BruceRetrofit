@@ -3,7 +3,6 @@ package net.iyouqu.bruceretrofit.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -19,6 +18,7 @@ import net.iyouqu.bruceretrofit.adapter.BtAdapter;
 import net.iyouqu.bruceretrofit.interfacebt.OnBtTouchListener;
 import net.iyouqu.bruceretrofit.interfacebt.OnLongClickListener;
 import net.iyouqu.bruceretrofit.network.BruceFactory;
+import net.iyouqu.bruceretrofit.ui.Base.BaseActivity;
 import net.iyouqu.bruceretrofit.widget.MultiSwipeRefreshLayout;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class MainActivity extends AppCompatActivity implements OnBtTouchListener, OnLongClickListener {
+public class MainActivity extends BaseActivity implements OnBtTouchListener, OnLongClickListener {
 	private static final String TAG = MainActivity.class.getSimpleName();
 	private RecyclerView mRecyclerView;
 	private MultiSwipeRefreshLayout mSwipeRefreshLayout;

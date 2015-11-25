@@ -3,7 +3,6 @@ package net.iyouqu.bruceretrofit.ui;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
@@ -14,11 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.iyouqu.bruceretrofit.R;
+import net.iyouqu.bruceretrofit.ui.Base.BaseActivity;
 
 /**
  * Created by q on 2015/11/12.
  */
-public class CoordinatorActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
+public class CoordinatorActivity extends BaseActivity implements AppBarLayout.OnOffsetChangedListener{
 	private static final float PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR  = 0.9f;
 	private static final float PERCENTAGE_TO_HIDE_TITLE_DETAILS     = 0.3f;
 	private static final int ALPHA_ANIMATIONS_DURATION              = 200;

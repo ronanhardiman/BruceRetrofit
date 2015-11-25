@@ -17,4 +17,9 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/color_grey_bdbdbd</item>
     </style>
+    <style name="swipeable" parent="Theme.AppCompat.NoActionBar">
+
+        <item name="android:windowIsTranslucent">true</item>
+
+    </style>
 </resources>
