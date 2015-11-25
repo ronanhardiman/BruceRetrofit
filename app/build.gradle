@@ -40,4 +40,6 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.6.0'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.6.0'
     compile 'com.squareup.okio:okio:1.6.0'
+    compile 'me.imid.swipebacklayout.lib:library:1.0.0'
+
 }
