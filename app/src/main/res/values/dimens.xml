@@ -19,4 +19,6 @@
     <dimen name="middle_size_16">16sp</dimen>
     <dimen name="middle_size_14">14sp</dimen>
     <dimen name="small_size_12">12sp</dimen>
+
+    <dimen name="touch_raise">6dp</dimen>
 </resources>

@@ -7,7 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import net.iyouqu.bruceretrofit.R;
+import net.iyouqu.bruceretrofit.network.BruceFactory;
+import net.iyouqu.bruceretrofit.util.glide.CircleTransform;
 import net.iyouqu.bruceretrofit.widget.badgedview.BadgedFourThreeImageView;
 import net.iyouqu.bruceretrofit.widget.badgedview.BadgedSquareImageView;
 
@@ -17,51 +22,47 @@ import butterknife.ButterKnife;
 /**
  * Created by q on 2015/11/26.
  */
-public class BadgedFragment extends Fragment implements View.OnClickListener{
+public class CircleImageFragment extends Fragment{
+
 	@Bind(R.id.badged_view)
 	BadgedFourThreeImageView badgedFourThreeImageView;
 	@Bind(R.id.badged_square_view)
 	BadgedSquareImageView badgedSquareImageView;
 	@Bind(R.id.badged_square_view2)
 	BadgedSquareImageView badgedSquareImageView2;
+	@Bind(R.id.badged_square_view3)
+	BadgedSquareImageView badgedSquareImageView3;
+	@Bind(R.id.badged_square_view4)
+	BadgedSquareImageView badgedSquareImageView4;
+
+	private CircleTransform circleCrop;
 
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.badged_layout, container, false);
-		ButterKnife.bind(this,view);
-		initView();
+		ButterKnife.bind(this, view);
 		return view;
-	}
-
-	private void initView() {
-		badgedFourThreeImageView.showBadge(true);
-		badgedSquareImageView.showBadge(true);
-		badgedSquareImageView2.showBadge(true);
-		badgedSquareImageView2.setBadgeText("JSON");
-		badgedSquareImageView2.setBadgeColor(getResources().getColor(R.color.color_red_FF4081));
-		badgedSquareImageView2.setOnClickListener(this);
 	}
 
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		circleCrop = new CircleTransform(getContext());
+		Glide.with(this)
+				.load(BruceFactory.image_urllist[0])
+				.diskCacheStrategy(DiskCacheStrategy.ALL)
+				.into(badgedFourThreeImageView)
+				;
+		Glide.with(getContext())
+				.load(BruceFactory.image_urllist[1])
+				.transform(circleCrop)
+				.into(badgedSquareImageView3);
 
-	}
-
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()){
-			case R.id.badged_square_view2:
-				if (badgedSquareImageView2.isBadgeVisible()) {
-					badgedSquareImageView2.showBadge(false);
-				}else {
-					badgedSquareImageView2.showBadge(true);
-				}
-
-//				Glide.get(getContext()).clearDiskCache();
-				break;
-			default:
-		}
+		Glide.with(getContext())
+				.load(BruceFactory.image_urllist[3])
+				.placeholder(R.drawable.dog)
+				.transform(circleCrop)
+				.into(badgedSquareImageView4);
 	}
 }

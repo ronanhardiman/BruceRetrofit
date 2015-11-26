@@ -66,7 +66,7 @@ public class MainMenuFragment extends Fragment {
 		mAdapter.menuItems.add(new MenuItem("Coordinator", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.FreshNews, CoordinatorFragment.class));
 		mAdapter.menuItems.add(new MenuItem("DataSet", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.BoringPicture, DataSetFragment.class));
 		mAdapter.menuItems.add(new MenuItem("BadgedView", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Sister, BadgedFragment.class));
-		mAdapter.menuItems.add(new MenuItem("josn", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Joke, CoordinatorFragment.class));
+		mAdapter.menuItems.add(new MenuItem("json", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Joke, CircleImageFragment.class));
 		mAdapter.menuItems.add(new MenuItem("flood", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Video, CoordinatorFragment.class));
 	}
 

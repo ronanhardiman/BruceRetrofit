@@ -21,4 +21,5 @@
     **[] $VALUES;
     public *;
 }
+-keepnames class * net.iyouqu.bruceretrofit.util.glide.GlideConfiguration
 # for glide
