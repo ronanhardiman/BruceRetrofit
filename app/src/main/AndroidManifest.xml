@@ -56,6 +56,14 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
+
+        <!-- Glide configurations for image loading -->
+        <meta-data
+            android:name="net.iyouqu.bruceretrofit.util.glide.GlideConfiguration"
+            android:value="GlideModule" />
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp.OkHttpGlideModule"
+            android:value="GlideModule" />
     </application>
 
 </manifest>

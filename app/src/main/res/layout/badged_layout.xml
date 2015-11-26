@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <net.iyouqu.bruceretrofit.widget.badgedview.BadgedFourThreeImageView
+            android:id="@+id/badged_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/dog"
+            app:badgeGravity="end|bottom"
+            app:badgePadding="@dimen/padding_normal"
+            app:badgeText="GIF"
+            />
+
+        <net.iyouqu.bruceretrofit.widget.badgedview.BadgedSquareImageView
+            android:id="@+id/badged_square_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:src="@drawable/dog"
+            app:badgeColor="@color/color_red_FF4081"
+            app:badgeGravity="top|right"
+            app:badgePadding="@dimen/padding_normal"
+            app:badgeText="@string/app_name"/>
+
+        <net.iyouqu.bruceretrofit.widget.badgedview.BadgedSquareImageView
+            android:id="@+id/badged_square_view2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:foreground="?selectableItemBackground"
+            android:src="@drawable/dog"
+            app:badgeGravity="top|left"
+            app:badgePadding="@dimen/padding_normal"
+            app:badgeText="@string/app_name"/>
+    </LinearLayout>
+
+</ScrollView>
