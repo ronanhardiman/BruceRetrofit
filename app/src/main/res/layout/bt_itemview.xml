@@ -10,6 +10,8 @@
     android:layout_marginRight="1dp"
     android:layout_marginTop="2dp"
     android:background="@drawable/bg_card"
+    android:foreground="?selectableItemBackground"
+    android:stateListAnimator="@animator/raise"
     android:clickable="true"
     android:orientation="vertical">
 

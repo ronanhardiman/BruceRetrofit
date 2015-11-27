@@ -37,6 +37,7 @@ public class BadgedFragment extends Fragment implements View.OnClickListener{
 	private void initView() {
 		badgedFourThreeImageView.showBadge(true);
 		badgedSquareImageView.showBadge(true);
+		badgedSquareImageView.setOnClickListener(this);
 		badgedSquareImageView2.showBadge(true);
 		badgedSquareImageView2.setBadgeText("JSON");
 		badgedSquareImageView2.setBadgeColor(getResources().getColor(R.color.color_red_FF4081));

@@ -85,7 +85,7 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 			ratioImageView.setOriginalSize(50,50);
 			view.setOnClickListener(this);
 //			view.setOnLongClickListener(this);
-			ratioImageView.setOnClickListener(this);
+//			ratioImageView.setOnClickListener(this);
 		}
 
 		@Override
