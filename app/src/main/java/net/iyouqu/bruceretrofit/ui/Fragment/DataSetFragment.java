@@ -21,7 +21,9 @@ import net.iyouqu.bruceretrofit.R;
 import net.iyouqu.bruceretrofit.network.BruceFactory;
 import net.iyouqu.bruceretrofit.ui.MainActivity;
 import net.iyouqu.bruceretrofit.util.StringUtil;
+import net.iyouqu.bruceretrofit.util.disk.DiskLruCacheHelper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,6 +124,17 @@ public class DataSetFragment extends Fragment {
 					mGirlList.clear();
 					initList(dataSet.results);
 					mDataAdapter.notifyDataSetChanged();
+					try {
+						DiskLruCacheHelper diskLruCacheHelper = new DiskLruCacheHelper(getContext());
+						diskLruCacheHelper.put("dataSet",dataSet);
+
+						DataSet dataSet1 = diskLruCacheHelper.getAsSerializable("dataSet");
+						if (dataSet1 != null) {
+							Log.e(TAG,"dataSet1:"+dataSet1.category.size());
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 

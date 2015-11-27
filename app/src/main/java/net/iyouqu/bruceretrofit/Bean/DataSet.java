@@ -2,16 +2,17 @@ package net.iyouqu.bruceretrofit.Bean;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by q on 2015/11/24.
  */
-public class DataSet {
+public class DataSet implements Serializable{
 
 	public Result results;
 	public List<String> category;
-	public class Result {
+	public class Result implements Serializable{
 		@SerializedName("Android") public List<Girl> androidList;
 		@SerializedName("iOS") public List<Girl> iOSList;
 		@SerializedName("休息视频") public List<Girl> restList;
