@@ -84,7 +84,7 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 			ratioImageView = (RatioImageView) itemView.findViewById(R.id.iv_bt);
 			ratioImageView.setOriginalSize(50,50);
 			view.setOnClickListener(this);
-//			view.setOnLongClickListener(this);
+			view.setOnLongClickListener(this);
 //			ratioImageView.setOnClickListener(this);
 		}
 
@@ -97,9 +97,9 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 
 		@Override
 		public boolean onLongClick(View v) {
-//			if (onLongClickListener != null) {
-//				onLongClickListener.onLongClick();
-//			}
+			if (onLongClickListener != null) {
+				onLongClickListener.onLongClick();
+			}
 			return false;
 		}
 	}

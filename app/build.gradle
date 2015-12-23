@@ -42,4 +42,7 @@ dependencies {
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
     compile 'de.greenrobot:eventbus:2.4.0'
 
+    compile 'io.reactivex:rxandroid:1.0.0'
+    compile 'com.orhanobut:logger:1.4'
+
 }

@@ -7,6 +7,7 @@ import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.GET;
 import retrofit.http.Path;
+import rx.Observable;
 
 /**
  * Created by q on 2015/9/27.
@@ -21,7 +22,12 @@ public interface BruceApi {
 	@GET("/day/{year}/{month}/{day}")
 	void getDataSet(@Path("year") int year, @Path("month") int month, @Path("day") int day,Callback<DataSet> response);
 
+	@GET("/day/{year}/{month}/{day}")
+	Observable<DataSet> getDataObservable(@Path("year")int year,@Path("month")int month,@Path("day")int day);
+
 	//但如果我们想获得JSON字符串，Callback的泛型里就不能写POJO类了，要写Response（retrofit.client包下）
 	@GET("/data/福利/" + BruceFactory.pageSize + "/{page}")
 	void getResponseData(@Path("page") int page, Callback<Response> response);
+
+
 }

@@ -10,6 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.orhanobut.logger.Logger;
+
+import net.iyouqu.bruceretrofit.Bean.DataSet;
 import net.iyouqu.bruceretrofit.Bean.FuliList;
 import net.iyouqu.bruceretrofit.Bean.Girl;
 import net.iyouqu.bruceretrofit.Db.GirlDaoHelper;
@@ -22,11 +25,16 @@ import net.iyouqu.bruceretrofit.ui.Base.BaseActivity;
 import net.iyouqu.bruceretrofit.widget.MultiSwipeRefreshLayout;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 
 public class MainActivity extends BaseActivity implements OnBtTouchListener, OnLongClickListener {
 	private static final String TAG = MainActivity.class.getSimpleName();
@@ -66,6 +74,7 @@ public class MainActivity extends BaseActivity implements OnBtTouchListener, OnL
 		super.onPostResume();
 		initSwipeRefresh();
 		getData(true);
+//		getDataOb();
 	}
 
 	private void initSwipeRefresh() {
@@ -109,6 +118,75 @@ public class MainActivity extends BaseActivity implements OnBtTouchListener, OnL
 		ArrayList<Girl> girlList = mDaoHelper.getGirlList();
 		Log.e(TAG, "initCache: girllist:"+girlList.size());
 		mGirlList.addAll(girlList);
+	}
+
+	private void getDataOb() {
+
+		Calendar calendar = Calendar.getInstance();
+		mCurrentDate = new Date(System.currentTimeMillis());
+		calendar.setTime(mCurrentDate);
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH)+1;
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		BruceFactory.getSingLeton().getDataObservable(year,month,day)
+				.observeOn(AndroidSchedulers.mainThread())
+				.map(new Func1<DataSet, DataSet.Result>() {
+					@Override
+					public DataSet.Result call(DataSet dataSet) {
+						Logger.e(TAG,"call dataSet:");
+						return dataSet.results;
+					}
+				})
+				.map(new Func1<DataSet.Result, List<Girl>>() {
+					@Override
+					public List<Girl> call(DataSet.Result result) {
+						Logger.e(TAG,"call result:");
+						return changeData(result);
+					}
+				})
+				.subscribe(new Subscriber<List<Girl>>() {
+					@Override
+					public void onCompleted() {
+						Logger.e(TAG,"onComplected:");
+						mCurrentDate = new Date(mCurrentDate.getTime() - DAY_OF_MILLISECOND);
+					}
+
+					@Override
+					public void onError(Throwable e) {
+						Logger.e(TAG,"onError e:"+e.getMessage());
+					}
+
+					@Override
+					public void onNext(List<Girl> list) {
+						Logger.e(TAG,"onNext:");
+					}
+				});
+	}
+	private Date mCurrentDate;
+	private static final int DAY_OF_MILLISECOND = 24*60*60*1000;
+	private List<Girl> girlList = new ArrayList<>();
+
+	private List<Girl> changeData(DataSet.Result result) {
+		girlList.clear();
+		if (result.restList != null) {
+			girlList.addAll(result.restList);
+		}
+		if (result.welfareList != null) {
+			girlList.addAll(result.welfareList);
+		}
+		if (result.recommendList != null) {
+			girlList.addAll(result.recommendList);
+		}
+		if (result.resourceList != null) {
+			girlList.addAll(result.resourceList);
+		}
+		if (result.androidList != null) {
+			girlList.addAll(result.androidList);
+		}
+		if (result.iOSList != null) {
+			girlList.addAll(result.iOSList);
+		}
+		return girlList;
 	}
 
 	private void getData(final boolean isCleanList) {
@@ -217,6 +295,7 @@ public class MainActivity extends BaseActivity implements OnBtTouchListener, OnL
 
 	@Override
 	public void onLongClick() {
-		startActivity(new Intent(this,CoordinatorActivity2.class));
+//		startActivity(new Intent(this,CoordinatorActivity2.class));
+		getDataOb();
 	}
 }

@@ -10,6 +10,8 @@ import android.os.Bundle;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.facebook.stetho.Stetho;
+import com.orhanobut.logger.LogLevel;
+import com.orhanobut.logger.Logger;
 
 import net.iyouqu.bruceretrofit.network.ConnectionChangeReceiver;
 
@@ -34,6 +36,13 @@ public class App extends Application{
 		ApplicationLifecycleMonitor applicationLifecycleMonitor = new ApplicationLifecycleMonitor();
 		registerComponentCallbacks(applicationLifecycleMonitor);
 		registerActivityLifecycleCallbacks(applicationLifecycleMonitor);
+
+		//只有调试模式下 才启用日志输出
+		if(BuildConfig.DEBUG){
+			Logger.init("Bruce").hideThreadInfo().setMethodCount(0);
+		}else{
+			Logger.init("Bruce").setLogLevel(LogLevel.NONE);
+		}
 	}
 
 	private void initGlide() {
