@@ -34,6 +34,7 @@ public class HomeActivity extends AppCompatActivity{
 		ButterKnife.bind(this);
 
 		initView();
+//		ThreadPoolUtils.getInstance(this).init();
 	}
 
 	private void initView() {
