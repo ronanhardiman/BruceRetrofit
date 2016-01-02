@@ -68,6 +68,7 @@ public class MainMenuFragment extends Fragment {
 		mAdapter.menuItems.add(new MenuItem("BadgedView", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Sister, BadgedFragment.class));
 		mAdapter.menuItems.add(new MenuItem("json", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Joke, CircleImageFragment.class));
 		mAdapter.menuItems.add(new MenuItem("flood", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Video, CoordinatorFragment.class));
+		mAdapter.menuItems.add(new MenuItem("animation", R.drawable.ic_explore_white_24dp, MenuItem.FragmentType.Animation, LikeAnimationFragment.class));
 	}
 
 	private class MenuAdapter extends RecyclerView.Adapter<ViewHolder> {
