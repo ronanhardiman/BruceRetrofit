@@ -49,6 +49,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/swipeable"
             ></activity>
+        <activity android:name=".ui.Activity.MVPActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/swipeable">
+        </activity>
+
         <receiver android:name=".network.ConnectionChangeReceiver"
                   android:enabled="false"
             >

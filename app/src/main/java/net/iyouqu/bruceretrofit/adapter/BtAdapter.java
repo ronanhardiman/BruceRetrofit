@@ -17,6 +17,7 @@ import net.iyouqu.bruceretrofit.interfacebt.OnBtTouchListener;
 import net.iyouqu.bruceretrofit.interfacebt.OnLongClickListener;
 import net.iyouqu.bruceretrofit.widget.RatioImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ import java.util.List;
 public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 	private static final String TAG = BtAdapter.class.getSimpleName();
 	private Context mContext;
-	private List<Girl> girlList;
+	private List<Girl> girlList = new ArrayList<>();
 	private OnBtTouchListener onBtTouchListener;
 	private OnLongClickListener onLongClickListener;
 	public void setOnBtTouchListener(OnBtTouchListener onBtTouchListener){
@@ -34,6 +35,10 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 
 	public void setOnLongClickListener(OnLongClickListener onLongClickListener) {
 		this.onLongClickListener = onLongClickListener;
+	}
+
+	public BtAdapter(Context mContext) {
+		this.mContext = mContext;
 	}
 
 	public BtAdapter(Context mContext,List<Girl> mList){
@@ -70,6 +75,17 @@ public class BtAdapter extends RecyclerView.Adapter<BtAdapter.ViewHolder>{
 	@Override
 	public int getItemCount() {
 		return girlList.size();
+	}
+
+	public void setDataAfterClear(List<Girl> data) {
+		girlList.clear();
+		girlList.addAll(data);
+		notifyDataSetChanged();
+	}
+
+	public void setData(List<Girl> data) {
+		girlList.addAll(data);
+		notifyDataSetChanged();
 	}
 
 	class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
