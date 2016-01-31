@@ -12,8 +12,16 @@ import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+import com.parse.ParseUser;
 
 import net.iyouqu.bruceretrofit.network.ConnectionChangeReceiver;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by q on 2015/9/29.
@@ -43,10 +51,33 @@ public class App extends Application{
 		}else{
 			Logger.init("Bruce").setLogLevel(LogLevel.NONE);
 		}
+		/**for parser**/
+		// Enable Local Datastore.
+		Parse.enableLocalDatastore(this);
+
+		// Add your initialization code here
+		Parse.initialize(this);
+		ParseInstallation.getCurrentInstallation().saveInBackground();
+
+		ParseUser.enableAutomaticUser();
+		ParseACL defaultACL = new ParseACL();
+		// Optionally enable public read access.
+		// defaultACL.setPublicReadAccess(true);
+		ParseACL.setDefaultACL(defaultACL, true);
+
+
+		Map<String, String> dimensions = new HashMap<String, String>();
+		// What type of news is this?
+		dimensions.put("category", "politics");
+		// Is it a weekday or the weekend?
+		dimensions.put("dayType", "weekday");
+		// Send the dimensions to Parse along with the 'read' event
+
+		ParseAnalytics.trackEventInBackground("read", dimensions);
 	}
 
 	private void initGlide() {
-		new GlideBuilder(this).setDiskCache(new InternalCacheDiskCacheFactory(this,GLIDE_DISKCACHE));
+		new GlideBuilder(this).setDiskCache(new InternalCacheDiskCacheFactory(this, GLIDE_DISKCACHE));
 	}
 
 	private void initStetho() {
