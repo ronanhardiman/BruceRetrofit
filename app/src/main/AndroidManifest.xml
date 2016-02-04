@@ -98,6 +98,10 @@
                   android:screenOrientation="portrait"
                   android:theme="@style/swipeable">
         </activity>
+        <activity android:name=".ui.Activity.BroadcastActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/swipeable"
+            ></activity>
 
         <receiver android:name=".network.ConnectionChangeReceiver"
                   android:enabled="false"
@@ -115,6 +119,9 @@
             android:name="com.bumptech.glide.integration.okhttp.OkHttpGlideModule"
             android:value="GlideModule" />
         <service android:name=".Service.BackgroundIntentService"
+                 android:exported="false"
+            ></service>
+        <service android:name=".Service.BroadcastIntentService"
                  android:exported="false"
             ></service>
     </application>

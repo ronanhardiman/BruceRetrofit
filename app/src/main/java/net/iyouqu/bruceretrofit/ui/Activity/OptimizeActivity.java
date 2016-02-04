@@ -30,11 +30,14 @@ public class OptimizeActivity extends BaseActivity{
 		ButterKnife.bind(this);
 		setupServiceReceiver();
 	}
-	@OnClick(R.id.tv_optimize_background)
+	@OnClick({R.id.tv_optimize_background,R.id.tv_optimize_broadcast})
 	void OnItemClick(View view) {
 		switch (view.getId()) {
 			case R.id.tv_optimize_background:
 				onStartService();
+				break;
+			case R.id.tv_optimize_broadcast:
+				startActivity(new Intent(OptimizeActivity.this,BroadcastActivity.class));
 				break;
 		}
 	}
