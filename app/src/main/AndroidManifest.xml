@@ -94,6 +94,11 @@
                   android:theme="@style/swipeable">
         </activity>
 
+        <activity android:name=".ui.Activity.OptimizeActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/swipeable">
+        </activity>
+
         <receiver android:name=".network.ConnectionChangeReceiver"
                   android:enabled="false"
             >
@@ -109,6 +114,9 @@
         <meta-data
             android:name="com.bumptech.glide.integration.okhttp.OkHttpGlideModule"
             android:value="GlideModule" />
+        <service android:name=".Service.BackgroundIntentService"
+                 android:exported="false"
+            ></service>
     </application>
 
 </manifest>

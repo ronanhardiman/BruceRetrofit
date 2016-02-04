@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import net.iyouqu.bruceretrofit.R;
 import net.iyouqu.bruceretrofit.ui.Activity.MVPActivity;
+import net.iyouqu.bruceretrofit.ui.Activity.OptimizeActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,8 +28,15 @@ public class MVPFragment extends Fragment{
 		return view;
 	}
 
-	@OnClick(R.id.btn_mvp)
-	void OnItemClick(View view){
-		startActivity(new Intent(getContext(), MVPActivity.class));
+	@OnClick({R.id.btn_mvp,R.id.btn_optimize_background})
+	void OnItemClick(View view) {
+		switch (view.getId()) {
+			case R.id.btn_mvp:
+				startActivity(new Intent(getContext(), MVPActivity.class));
+				break;
+			case R.id.btn_optimize_background:
+				startActivity(new Intent(getContext(), OptimizeActivity.class));
+				break;
+		}
 	}
 }
