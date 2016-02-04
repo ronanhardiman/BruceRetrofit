@@ -1,4 +1,9 @@
 更新记录:
+2016/2/4:
+Communicating with a BroadcastReceiver
+Using with AlarmManager for Periodic Tasks
+Starting a Service at Device Boot
+
 2016/2/2:
 优化 Android 线程和后台任务开发
 https://realm.io/cn/news/android-threading-background-tasks/

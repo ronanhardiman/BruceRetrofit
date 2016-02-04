@@ -3,6 +3,7 @@
     <string name="mvp_activity_title">MVP_Activity</string>
     <string name="optimize_activity_title">优化Android线程和后台任务开发</string>
     <string name="BroadcastReceiver_title">BroadcastReceiver</string>
+    <string name="alarm_title">AlarmManager</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
