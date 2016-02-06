@@ -20,7 +20,6 @@ public class TestService extends Service{
 		return super.onStartCommand(intent, flags, startId);
 	}
 
-
 	@Nullable
 	@Override
 	public IBinder onBind(Intent intent) {

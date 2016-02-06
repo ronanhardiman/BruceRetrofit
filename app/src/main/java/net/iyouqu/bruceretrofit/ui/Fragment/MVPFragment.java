@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import net.iyouqu.bruceretrofit.R;
+import net.iyouqu.bruceretrofit.ui.Activity.DataStructureActivity;
 import net.iyouqu.bruceretrofit.ui.Activity.MVPActivity;
 import net.iyouqu.bruceretrofit.ui.Activity.OptimizeActivity;
 
@@ -28,7 +29,7 @@ public class MVPFragment extends Fragment{
 		return view;
 	}
 
-	@OnClick({R.id.btn_mvp,R.id.btn_optimize_background})
+	@OnClick({R.id.btn_mvp,R.id.btn_optimize_background,R.id.btn_data_background})
 	void OnItemClick(View view) {
 		switch (view.getId()) {
 			case R.id.btn_mvp:
@@ -36,6 +37,9 @@ public class MVPFragment extends Fragment{
 				break;
 			case R.id.btn_optimize_background:
 				startActivity(new Intent(getContext(), OptimizeActivity.class));
+				break;
+			case R.id.btn_data_background:
+				startActivity(new Intent(getContext(), DataStructureActivity.class));
 				break;
 		}
 	}

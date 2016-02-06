@@ -1,9 +1,24 @@
 更新记录:
+2016/2/6
+Robolectric
+https://github.com/robolectric/robolectric-samples
+https://testerhome.com/topics/2615
+
+2016/2/5
+尝试了Robolectric 3.0 引入,发现如下问题:
+java.lang.UnsupportedOperationException: Robolectric does not support API level 23.
+
+* https://github.com/robolectric/robolectric/issues/1865
+目前没有找到解决方案
+
+
 2016/2/4:
 Communicating with a BroadcastReceiver
 Using with AlarmManager for Periodic Tasks
 Starting a Service at Device Boot
 
+Java之美[从菜鸟到高手演变]之数据结构基础、线性表、栈和队列、数组和字符串
+Stack Queue
 2016/2/2:
 优化 Android 线程和后台任务开发
 https://realm.io/cn/news/android-threading-background-tasks/

@@ -19,7 +19,7 @@ import net.iyouqu.bruceretrofit.Bean.DataSet;
 import net.iyouqu.bruceretrofit.Bean.Girl;
 import net.iyouqu.bruceretrofit.R;
 import net.iyouqu.bruceretrofit.network.BruceFactory;
-import net.iyouqu.bruceretrofit.ui.MainActivity;
+import net.iyouqu.bruceretrofit.ui.Activity.MainActivity;
 import net.iyouqu.bruceretrofit.util.StringUtil;
 import net.iyouqu.bruceretrofit.util.disk.DiskLruCacheHelper;
 

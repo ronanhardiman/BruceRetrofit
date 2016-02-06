@@ -21,4 +21,12 @@
         android:text="@string/optimize_activity_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/btn_data_background"
+        android:layout_margin="@dimen/padding_16"
+        android:padding="@dimen/padding_16"
+        android:background="@android:color/holo_blue_dark"
+        android:text="@string/data_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

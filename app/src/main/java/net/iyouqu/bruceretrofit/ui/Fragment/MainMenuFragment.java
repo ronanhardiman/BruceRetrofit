@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import net.iyouqu.bruceretrofit.Bean.MenuItem;
 import net.iyouqu.bruceretrofit.R;
-import net.iyouqu.bruceretrofit.ui.HomeActivity;
+import net.iyouqu.bruceretrofit.ui.Activity.HomeActivity;
 
 import java.util.ArrayList;
 

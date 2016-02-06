@@ -1,4 +1,4 @@
-package net.iyouqu.bruceretrofit.ui;
+package net.iyouqu.bruceretrofit.ui.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package net.iyouqu.bruceretrofit.ui;
+package net.iyouqu.bruceretrofit.ui.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
