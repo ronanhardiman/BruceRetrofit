@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion COMPILE_SDK_VERSION
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId "net.iyouqu.bruceretrofit"
-        minSdkVersion 14
-        targetSdkVersion 23
+        applicationId BASE_PACKAGENAME
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
     }
@@ -22,7 +22,30 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile libraries.support_v4
+
+    //net
+    compile(
+            libraries.retrofit,
+            libraries.okhttp,
+            libraries.okhttp_urlconnection,
+    )
+    //img
+    compile(
+            libraries.picasso,
+            libraries.glide,
+            libraries.glide_okhttp_integration,
+    )
+    // event bus
+    // compile libraries.otto
+    // replace with rxjava
+    compile libraries.rxjava
+
+    debugCompile libraries.leakcanary_android
+    releaseCompile libraries.leakcanary_android_no_op
+
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:recyclerview-v7:23.0.1'

@@ -11,7 +11,8 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+apply from: 'dependencyDefinitions.gradle'
+apply from: 'variants.gradle'
 allprojects {
     repositories {
         jcenter()
