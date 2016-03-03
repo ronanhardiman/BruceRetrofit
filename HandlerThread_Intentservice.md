@@ -346,7 +346,7 @@ able to call stopSelf(int), then the ID will not match and the service will not 
 如果onHandleIntent(Intent)返回之前进程死掉了，那么进程将会重新启动，intent重新投递，
 如果有大量的intent投递了，那么只保证最近的intent会被重投递。这个机制也很好，大家可以尝试着用。
 
-[]()
+[!url](http://blog.csdn.net/fangyoayu2013/article/details/50578780)
 
 Android中Service类中onStartCommand返回值介绍:
 
