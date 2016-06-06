@@ -1,4 +1,11 @@
 更新记录:
+2016/06/07
+ViewGroup 关联一个 item 布局
+https://drakeet.me/mvp-and-thinking-in-android
+2016/03/13
+http://www.androidchina.net/4298.html#rd?sukey=a76cdd086edb4fce9160281ae02032e0f72097fcce92615254051c9319259b5f33468352c92836267026bbce57c27b45
+常用库和版本管理
+
 2016/2/6
 Robolectric
 https://github.com/robolectric/robolectric-samples

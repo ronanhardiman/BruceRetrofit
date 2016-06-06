@@ -10,6 +10,16 @@ android {
         targetSdkVersion TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
+/*** buildConfigField管理私有参数, 配置在gradle.properties里面.
+ *设置参数的类型\变量名\位置三个部分.
+ * 未指定路径, 默认是配置在gradle.properties中.
+ 两个地方可以配置参数, 一个是项目的build.gradle, 一个是gradle.properties.
+ 项目中使用BuildConfig.xxx引入参数.
+ MarvelSigningIterceptor signingIterceptor = new MarvelSigningIterceptor(
+ BuildConfig.MARVEL_PUBLIC_KEY, BuildConfig.MARVEL_PRIVATE_KEY);
+ * **/
+//        buildConfigField "String", "MARVEL_PUBLIC_KEY", "\"${marvel_public_key}\""
+//        buildConfigField "String", "MARVEL_PRIVATE_KEY", "\"${marvel_private_key}\""
     }
     buildTypes {
         release {
