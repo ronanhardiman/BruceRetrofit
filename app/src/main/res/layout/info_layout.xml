@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备信息" />
+    <TextView
+        android:id="@+id/tv_info1"
+        android:layout_below="@id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="宽高:" />
+    <TextView
+        android:id="@+id/tv_info2"
+        android:layout_below="@id/tv_info1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="dpi:" />
+    <TextView
+        android:id="@+id/tv_info3"
+        android:layout_below="@id/tv_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="mode:" />
+    <TextView
+        android:id="@+id/tv_info4"
+        android:layout_below="@id/tv_info3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Imsi:" />
+    <TextView
+        android:id="@+id/tv_info5"
+        android:layout_below="@id/tv_info4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="CpuInfo:" />
+    <TextView
+        android:id="@+id/tv_info6"
+        android:layout_below="@id/tv_info5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="ProviderName:" />
+</RelativeLayout>

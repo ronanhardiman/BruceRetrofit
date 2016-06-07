@@ -52,7 +52,6 @@ public class MyFragment extends Fragment implements AppBarLayout.OnOffsetChanged
 
 		viewPager.setAdapter(new TabsAdapter(getActivity().getSupportFragmentManager()));
 		tabLayout.setupWithViewPager(viewPager);
-
 		return view;
 	}
 

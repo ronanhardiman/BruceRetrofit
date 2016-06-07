@@ -17,6 +17,7 @@
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/> 
     <!--
   IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
   to match your app's package name + ".permission.C2D_MESSAGE".
