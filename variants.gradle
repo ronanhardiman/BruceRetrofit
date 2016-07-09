@@ -2,7 +2,7 @@ ext {
     COMPILE_SDK_VERSION = 23
     BUILD_TOOLS_VERSION = '23.0.2'
     TARGET_SDK_VERSION = 22
-    MIN_SDK_VERSION = 10
+    MIN_SDK_VERSION = 14
 
     BASE_PACKAGENAME = 'net.iyouqu.bruceretrofit'
     RES_APP_COLOR_NAME = 'build_brand_primary'

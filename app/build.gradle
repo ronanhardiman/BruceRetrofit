@@ -51,6 +51,7 @@ dependencies {
     // replace with rxjava
 
 //    compile libraries.rxjava debugCompile libraries.leakcanary_android releaseCompile libraries.leakcanary_android_no_op compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.github.iammert:MaterialIntroView:1.5.2'
 
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:recyclerview-v7:23.0.1'
