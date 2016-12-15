@@ -1,3 +1,5 @@
+2016/12/15
+test git
 更新记录:
 2016/06/07
 ViewGroup 关联一个 item 布局
